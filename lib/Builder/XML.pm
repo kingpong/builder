@@ -40,7 +40,9 @@ sub AUTOLOAD {
             $self->__element__( context => 'start', element => $elt, attr => $attr );
             for my $inner ( @args ) {
                 if ( ref $inner eq 'CODE' ) { $inner->() }
-                else { $self->__push__( sub { $inner } ) }
+                else { $self->__push__( sub {
+                  $inner;
+                  } ) }
             }
             $self->__element__( context => 'end', element => $elt );
             return;

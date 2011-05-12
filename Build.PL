@@ -12,6 +12,10 @@ my $builder = Module::Build->new(
         'Test::More' => 0,
         'Carp'       => 0,
     },
+
+    recommends => {
+        'XML::LibXML' => 0,
+    },
     
     add_to_cleanup      => [ 'Builder-*' ],
     

@@ -22,6 +22,7 @@ sub block {
     my ( $self, $block, $args_ref ) = @_;
     # TODO: check args_ref is hashref and if anything left in @_ then croak
     eval "require $block";
+    die $@ if $@;
     # TODO: put $@ check here and add relevant test
     
     return $self->_new_block( $block->__new__( 
